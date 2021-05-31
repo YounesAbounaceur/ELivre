@@ -6,7 +6,7 @@ import metier.enteties.*;
 public interface CommerceRemote {
 	
 	public Compte addCompte(Compte cp);
-	public Compte getCompte(Long compte);
+	public Compte getCompte(Long code);
 	public List <Compte> listComptes();
 	public void verser(Long code, double mt);
 	public void retirer(Long code, double mt);

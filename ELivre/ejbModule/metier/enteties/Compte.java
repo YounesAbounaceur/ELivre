@@ -38,7 +38,13 @@ public class Compte implements Serializable {
 
 	public Compte() {
 		super();
-	}   
+	} 
+	public Compte(String username, String email, Double solde) {
+		this.username = username;
+		this.email = email;
+		dateCreation = new Date();
+		this.solde = solde;
+	}
 	public Long getCode() {
 		return this.code;
 	}

@@ -4,7 +4,9 @@
 		<jta-data-source>java:/dsCommerce</jta-data-source>
 		<class>metier.enteties.Compte</class>
 		<properties>
+		<!--  
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			-->
 		</properties>
 	</persistence-unit>
 </persistence>
