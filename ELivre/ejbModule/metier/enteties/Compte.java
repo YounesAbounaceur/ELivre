@@ -14,8 +14,8 @@ import javax.persistence.*;
 
 public class Compte implements Serializable {	   
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long code;
+	
+	private String code;
 	private String username;
 	private String email;
 	private Double solde=(double) 0;
@@ -39,18 +39,19 @@ public class Compte implements Serializable {
 	public Compte() {
 		super();
 	} 
-	public Compte(String username, String email, Double solde) {
+	public Compte(String code, String username, String email, Double solde) {
+		this.code = code;
 		this.username = username;
 		this.email = email;
 		dateCreation = new Date();
 		this.solde = solde;
 	}
-	public Long getCode() {
+	public String getCode() {
 		return this.code;
 	}
 	
 	
-	public void setCode(Long code) {
+	public void setCode(String code) {
 		this.code = code;
 	}   
 	public Double getSolde() {

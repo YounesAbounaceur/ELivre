@@ -20,7 +20,7 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 	}
 
 	@Override
-	public Compte getCompte(Long code) {
+	public Compte getCompte(String code) {
 		Compte cp = em.find(Compte.class, code);
 		if(cp==null) throw new RuntimeException("Compte introuvable");
 		return cp;
@@ -33,14 +33,14 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 	}
 
 	@Override
-	public void verser(Long code, double mt) {
+	public void verser(String code, double mt) {
 		Compte cp = getCompte(code);
 		cp.setSolde(cp.getSolde()+mt);
 		
 	}
 
 	@Override
-	public void retirer(Long code, double mt) {
+	public void retirer(String code, double mt) {
 		Compte cp = getCompte(code);
 		if(cp.getSolde()<mt) throw new RuntimeException("Solde insuffisant");
 		
@@ -49,10 +49,12 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 	}
 
 	@Override
-	public void virement(Long cp1, Long cp2, double mt) {
+	public void virement(String cp1, String cp2, double mt) {
 		retirer(cp1,mt);
 		verser(cp2,mt);
 		
 	}
+
+
 
 }

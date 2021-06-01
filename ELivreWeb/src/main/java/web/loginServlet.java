@@ -16,6 +16,11 @@ import metier.enteties.Compte;
 @WebServlet("/auth")
 public class loginServlet extends HttpServlet {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@EJB
 	private CommerceLocal metier;
 	
@@ -35,7 +40,7 @@ public class loginServlet extends HttpServlet {
     		session.setAttribute("user", compte);
     		System.out.println("role : "+session.getAttribute("role") + "\n"+compte);
     		
-    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("controler");
+    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
     		requestDispatcher.forward(request, response);
     	}
     	else {

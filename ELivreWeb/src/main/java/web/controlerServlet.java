@@ -14,6 +14,10 @@ import metier.CommerceLocal;
 @WebServlet("/controler")
 
 public class controlerServlet extends HttpServlet {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@EJB
 	private CommerceLocal metier;
 	@Override

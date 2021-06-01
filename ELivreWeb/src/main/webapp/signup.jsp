@@ -13,7 +13,8 @@
 </head>
 <body>
 
-           <form action="auth" method="post">
+           <form action="signup" method="post">
+           
                 <div class="modal-dialog modal-signup modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header border-bottom-0">
@@ -34,7 +35,7 @@
                                 <input type="text" class="form-control" name="solde" placeholder="Solde">
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control" name="email"placeholder="Email">
+                                <input type="email" class="form-control" name="email" placeholder="Email">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Mot de passe">

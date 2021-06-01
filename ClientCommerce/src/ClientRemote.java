@@ -21,14 +21,20 @@ public class ClientRemote {
 			//String nomComplet = "ejb:/ELivre/BK!metier.CommerceRemote";
 					
 			CommerceRemote proxy = (CommerceRemote) ct.lookup(nomComplet);
-			
-			proxy.addCompte(new Compte());
-			proxy.addCompte(new Compte());
-			proxy.addCompte(new Compte());
-			
-			Compte cp = proxy.getCompte(1L);
+			//String username, String email, Double solde
+			/*
+			proxy.addCompte(new Compte("187d","younesAB","younes.ab@gmail.com",8792D));
+			proxy.addCompte(new Compte("1","Zizo","zizi@gmail.com",81335D));
+			proxy.addCompte(new Compte("3xc","Yone","Yone@hotmail.fr",792D));
+			*/
+			Compte cp = proxy.getCompte(new String("1"));
 			System.out.println(cp.getSolde());
+			List<Compte> comptes = proxy.listComptes();
+			for (Compte c:comptes) {
+				System.out.println(c.getCode()+":"+c.getSolde());
+			}
 			
+			/*
 			proxy.verser(1L, 4000);
 			proxy.retirer(1L, 1000);
 			proxy.virement(1L, 2L, 1000);
@@ -37,7 +43,7 @@ public class ClientRemote {
 				System.out.println(c.getCode()+":"+c.getSolde());
 			}
 			
-			
+			*/
 		} catch (NamingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

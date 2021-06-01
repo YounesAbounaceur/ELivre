@@ -4,13 +4,12 @@ import javax.ejb.Remote;
 import metier.enteties.*;
 @Remote
 public interface CommerceRemote {
-	
 	public Compte addCompte(Compte cp);
-	public Compte getCompte(Long code);
+	public Compte getCompte(String code);
 	public List <Compte> listComptes();
-	public void verser(Long code, double mt);
-	public void retirer(Long code, double mt);
-	public void virement(Long cp1,Long cp2, double mt);
+	public void verser(String code, double mt);
+	public void retirer(String code, double mt);
+	public void virement(String cp1,String cp2, double mt);
 	
    
 }
