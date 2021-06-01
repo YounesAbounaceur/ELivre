@@ -1,0 +1,123 @@
+.navbar-brand {
+    margin-left: 30px;
+    font-size: 30px;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.debutTitre {
+    color: black;
+    font-size: 50px;
+}
+
+.finTitre {
+    color:gray;
+    font-size: 50px;
+}
+
+.navbar-nav .nav-item .btn-light {
+    margin-top: 4px;
+    margin-left: 20px;
+    font-size: 20px;
+    color:black;
+}
+
+.action-buttons .nav1 {
+    margin-right: 10px;
+}
+
+.action-buttons .nav2 {
+    margin-right: 20px;
+}
+
+.navbar {
+    box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+}
+
+.modal-content {
+	width: 420px;
+	margin: 0 auto;
+	padding: 30px 0;
+}
+
+.modal-content form {		
+	border-radius: 1px;
+	margin-bottom: 15px;
+	background: #fff;
+	padding: 30px;
+}
+
+.modal-content .form-control {
+	min-height: 38px;
+	box-shadow: none !important;
+	border-width: 0 0 1px 0;
+}	
+
+.modal-content .btn-primary {
+    margin-top:25px;
+}
+
+.modal-content .modal-footer {
+    font-size:13px;
+}
+
+.container-first h1 {
+    margin-top: 70px;
+    text-transform: uppercase;
+    font-size: 70px;
+    color:#3C4651;
+    font-family: Abril fatface, sans-serif;
+    text-align: center;
+}
+.container-first h1 span {
+    position: relative;
+}
+
+.container-second {
+    height: 200px;
+}
+
+.container-sell h2 {
+    text-transform: uppercase;
+    font-size: 40px;
+    color:#3C4651;
+    font-family: Abril fatface, sans-serif;
+    margin-left: 15%;
+    margin-bottom: 50px;
+}
+
+.container-third {
+    height: 600px;
+}
+.container-third .col1 {
+    margin-left: 20%;
+    margin-right: -20%;
+    height: 400px;
+}
+.container-third .col2 {
+    height: 400px;
+    background-color:#f8f9fa;
+}
+
+.container-fourth {
+    height: 700px;
+    width: 50%;
+}
+
+.container-fourth .smallSell{
+    margin-top: 10px;
+}
+
+.container-fourth .btnSell{
+    margin-top: 20px;
+}
+
+.footer {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+html{scroll-behavior:smooth}
