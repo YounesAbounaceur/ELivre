@@ -13,7 +13,7 @@
 </head>
 <body>
 
-           <form action="signup" method="post">
+           
            
                 <div class="modal-dialog modal-signup modal-dialog-centered" role="document">
                   <div class="modal-content">
@@ -27,7 +27,7 @@
                         <h4>Créer un compte</h4>
                       </div>
                       <div class="d-flex flex-column text-center">
-                        <form>
+                        <form action="signup" method="post">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="username" placeholder="Identifiant">
                             </div>
@@ -36,10 +36,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control" name="email" placeholder="Email">
-                            </div>
+                            </div>                        
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password" placeholder="Mot de passe">
                             </div>
+                            
                             <div class="form-group">
                                 <input type="password" class="form-control" name="password2" placeholder="Confirmer le mot de passe">
                             </div>
@@ -52,7 +53,7 @@
                     </div>
                 </div>
             </div>
-</form>
+
          
 </body>
 </html>
