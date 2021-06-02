@@ -33,19 +33,24 @@ public class loginServlet extends HttpServlet {
     	String username = request.getParameter("username");
     	String code = request.getParameter("password");
     	compte = metier.getCompte(code);
-    	
+		HttpSession session = request.getSession();
+		session.setAttribute("role", "user");    	
     	if(compte!=null) {
-    		HttpSession session = request.getSession();
-    		session.setAttribute("role", "user");
+
     		session.setAttribute("user", compte);
     		System.out.println("role : "+session.getAttribute("role") + "\n"+compte);
+    		//Compte cp =(Compte) session.getAttribute("user");
+    		//System.out.println("user is :"+cp.getUsername());
+    		
     		
     		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
     		requestDispatcher.forward(request, response);
     	}
     	else {
+    		request.setAttribute("user", null);
     		request.setAttribute("error", "Identifiant ou mot de passe incorrects");
-    		request.getRequestDispatcher("connexion.jsp").forward(request, response);
+    		RequestDispatcher requestDispatcher = request.getRequestDispatcher("connexion.jsp");
+    		requestDispatcher.forward(request, response);
     	}
 		
 	}

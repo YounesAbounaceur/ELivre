@@ -28,11 +28,12 @@
                       <div class="d-flex flex-column text-center">
                         <form>
                           <div class="form-group">
-                            <input type="text" class="form-control" name="username" placeholder="Identifiant">
+                            <input type="text" class="form-control" name="username" placeholder="Identifiant" required>
                           </div>
                           <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="Mot de passe">
+                            <input type="password" class="form-control" name="password" placeholder="Mot de passe" required>
                           </div>
+                          <span class="erreur">${form.erreurs['motdepasse']}</span>
                           <button type="submit" class="btn btn-primary">Je me connecte</button>
                         </form>   
                       </div>
