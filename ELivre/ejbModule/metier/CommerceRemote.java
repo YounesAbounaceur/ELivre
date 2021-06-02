@@ -11,5 +11,9 @@ public interface CommerceRemote {
 	public void retirer(String code, double mt);
 	public void virement(String cp1,String cp2, double mt);
 	
-   
+	public Livre addLivre(Livre livre);
+	public void ajouterLivre(String idCompte, Livre livre);
+	public void ajouterCommande(String idCompte, Commande commande);
+	public void effectuerCommande(String idCpt1, Livre livre);
+	public void supprLivre(String idCpt, Livre livre);
 }

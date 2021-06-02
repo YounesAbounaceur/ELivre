@@ -3,10 +3,12 @@
 	<persistence-unit name="ELivre" transaction-type="JTA">
 		<jta-data-source>java:/dsCommerce</jta-data-source>
 		<class>metier.enteties.Compte</class>
+		<class>metier.enteties.Livre</class>
+		<class>metier.enteties.Commande</class>
 		<properties>
 		<!--  
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
-			-->
+		-->
 		</properties>
 	</persistence-unit>
 </persistence>
