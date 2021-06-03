@@ -3,6 +3,7 @@ package metier.enteties;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,19 +23,20 @@ public class Commande implements Serializable {
 	private Date cmddate;
 	private String cmdetat;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	Compte commandeur;
 	
-	@OneToOne(mappedBy="commandeOwner")
+	@OneToOne(mappedBy="commandeOwner",cascade = {CascadeType.ALL})
 	Livre livre;
    
    
 	public Commande() {
 		super();
 	}
-	public Commande(int idCmd,String cmdetat) {
+	public Commande(String cmdetat, Compte commandeur, Livre livre) {
 		this.cmdetat = cmdetat;
-		this.idCmd = idCmd;
+		this.livre = livre;
+		this.commandeur = commandeur;
 		this.cmddate = new Date();
 		
 	}

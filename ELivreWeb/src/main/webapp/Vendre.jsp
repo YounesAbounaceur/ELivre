@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"> 
-                <a class="btn nav-link btn-light" role="button" href="Acheter.jsp">Acheter</a>    
+                 <a class="btn nav-link btn-light" role="button" href="buyServlet">Acheter</a>     
             </li>
             <li class="nav-item">
                 <a class="btn nav-link btn-light" role="button" href="Vendre.jsp">Vendre</a>   
@@ -41,38 +41,8 @@
 
     <div class="container container-fourth">
       <form action="Sell" method="post">
-      <!--  
-        <div class="form-group">
-          <label for="FormControlSelect1">Classe &#42</label>
-          <select class="form-control" id="FormControlSelect1" required>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="FormControlSelect2">Matière &#42</label>
-          <select class="form-control" id="FormControlSelect2" required>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="FormControlSelect4">Etat &#42</label>
-          <select class="form-control" id="FormControlSelect4" required>
-            <option value="valueTB">Très bon</option>
-            <option value="valueB">Bon</option>
-            <option value="valueC">Correct</option>
-            <option value="valueM">Mauvais</option>
-          </select>
-        </div>
-        -->
+
+
         <div class="form-group">
           <label for="FormControlInput">Designation &#42</label>
           <input type="text" class="form-control" name="designation" placeholder="donnez le nom du livre" required>

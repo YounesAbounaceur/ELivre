@@ -20,3 +20,16 @@ $(document).on("click", ".browse", function() {
     };
     reader.readAsDataURL(this.files[0]);
   });
+
+$('#myVendeur').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) 
+  var recipient = button.data('whatever') 
+  var info = recipient.split(" ") 
+  var modal = $(this)
+  modal.find('.modal-body .nom').val(info[0])
+  modal.find('.modal-body .prenom').val(info[1])
+  modal.find('.modal-body .mail').val(info[2])
+  $('#mailbutton').click(function() {
+    window.location = "mailto:" + info[2];
+  });
+})

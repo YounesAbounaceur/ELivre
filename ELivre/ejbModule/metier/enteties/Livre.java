@@ -3,6 +3,7 @@ package metier.enteties;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,10 +28,10 @@ public class Livre implements Serializable {
 	private String nomAuth;
 	private String genre;
 	
-	@ManyToOne
+	@ManyToOne(cascade = {CascadeType.ALL})
 	Compte owner;
 	
-	@OneToOne
+	@OneToOne(cascade = {CascadeType.ALL})
 	Commande commandeOwner;
 	
 	public Livre() {
@@ -41,8 +42,9 @@ public class Livre implements Serializable {
 		
 		this.designation = designation;
 		this.description = description;
+		this.prix = prix;
 		this.img = img;
-		this.etat = "à vendre";
+		this.etat = "non vendu";
 		this.genre = genre;
 		this.nomAuth= nomAuth;
 		

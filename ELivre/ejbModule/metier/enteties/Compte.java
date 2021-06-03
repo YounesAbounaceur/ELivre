@@ -25,10 +25,10 @@ public class Compte implements Serializable {
 	private Date dateCreation;
 	private static final long serialVersionUID = 1L;
 	
-	@OneToMany(mappedBy="commandeur",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="commandeur",fetch=FetchType.EAGER,cascade = {CascadeType.ALL})
 	List<Commande> commandes = new ArrayList<Commande>();
 	
-	@OneToMany(mappedBy="owner",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="owner",fetch=FetchType.EAGER,cascade = {CascadeType.ALL})
 	List<Livre> livres = new ArrayList<Livre>();
 
 

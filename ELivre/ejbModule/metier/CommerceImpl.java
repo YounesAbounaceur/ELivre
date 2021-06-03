@@ -30,7 +30,12 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 		if(cp==null) throw new RuntimeException("Compte introuvable");
 		return cp;
 	}
-
+	@Override
+	public List <Livre> listLivres(){
+		Query req = em.createQuery("select l from Livre l");
+		
+		return req.getResultList();
+	}
 	@Override
 	public List<Compte> listComptes() {
 		Query req = em.createQuery("select c from Compte c");
@@ -76,7 +81,9 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 		
 			
 		livres.add(livre);
+		livre.setOwner(compte);
 		compte.setLivres(livres);
+		em.merge(livre);
 		em.merge(compte);
 		
 		
@@ -85,16 +92,25 @@ public class CommerceImpl implements CommerceLocal, CommerceRemote {
 	public void ajouterCommande(String idCompte, Commande commande) {
 		Compte compte = em.find(Compte.class, idCompte);
 		compte.getCommandes().add(commande);
+		
 	}
 	@Override
-	public void effectuerCommande(String idCpt1, Livre livre) {
+	public void effectuerCommande(String idCpt1, int idLivre) {
 		Compte cpt1 = em.find(Compte.class, idCpt1);
+		
+		Livre livre = em.find(Livre.class, idLivre);
 		Compte cpt2 = livre.getOwner();
-		Commande commande =livre.getCommandeOwner();
+		Commande commande = new Commande("done", cpt1, livre);
 		ajouterCommande(idCpt1,commande);
 		livre.setEtat("vendu");
+		livre.setCommandeOwner(commande);
+		
 		double prix = livre.getPrix();
 		virement(idCpt1, idCpt1, prix);
+		em.merge(commande);
+		em.merge(cpt1);
+		em.merge(cpt2);
+		em.merge(livre);
 	}
 	
 	@Override

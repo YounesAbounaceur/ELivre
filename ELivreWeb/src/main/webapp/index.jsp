@@ -24,7 +24,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item"> 
-                <a class="btn nav-link btn-light" role="button" href="Acheter.jsp">Acheter</a>    
+                <a class="btn nav-link btn-light" role="button" href="buyServlet">Acheter</a>      
             </li>
             <li class="nav-item">
                 <a class="btn nav-link btn-light" role="button" href="Vendre.jsp">Vendre</a>   
@@ -83,68 +83,11 @@
         </div>
     </div>
 
-    <div class="container container-sell">
-        <a id="sellAnchor"></a>
-        <h2><span>Vendre</span></h2> 
-    </div>
-
-    <div class="container container-fourth">
-      <form>
-        <div class="form-group">
-          <label for="FormControlSelect1">Classe &#42</label>
-          <select class="form-control" id="FormControlSelect1" required>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="FormControlSelect2">Matière &#42</label>
-          <select class="form-control" id="FormControlSelect2" required>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="FormControlSelect4">Etat &#42</label>
-          <select class="form-control" id="FormControlSelect4" required>
-            <option value="valueTB">Très bon</option>
-            <option value="valueB">Bon</option>
-            <option value="valueC">Correct</option>
-            <option value="valueM">Mauvais</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="FormControlInput">ISBN</label>
-          <input type="text" class="form-control" id="FormControlInput" placeholder="Optionel">
-        </div>
-        <div class="form-group">
-          <label for="FormControlFile">Insérer une photo &#42</label>
-          <input type="file" accept=".jpg,.png" class="form-control-file" id="FormControlFile" required>
-        </div>
-        <div class="ml-2 col-sm-6">
-          <img src="public/img/livre_upload.png" id="preview" class="img-thumbnail">
-        </div>
-        <small id="passwordHelpBlock" class="form-text text-muted smallSell">
-          Tous les champs avec un astérisque (&#42) sont obligatoires.
-        </small> 
-        <!-- jsp recuperer name-->
-        <button type="submit" class="btn btn-primary btnSell" name="btnVendre">Vendre</button>
-      </form>
-    </div>
-
     <footer>
       <div class="footer">
         &#169 2021 Livraide - Tous droits réservés
       </div>
     </footer>
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

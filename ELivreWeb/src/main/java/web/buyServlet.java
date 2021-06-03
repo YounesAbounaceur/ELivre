@@ -1,6 +1,8 @@
 package web;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -16,15 +18,15 @@ import metier.enteties.Compte;
 import metier.enteties.Livre;
 
 /**
- * Servlet implementation class sellServlet
+ * Servlet implementation class buyServlet
  */
-@WebServlet("/Sell")
-public class sellServlet extends HttpServlet {
+@WebServlet("/buyServlet")
+public class buyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	@EJB
 	private CommerceLocal metier;
-    public sellServlet() {
+    public buyServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,33 +35,47 @@ public class sellServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		
+		
+		HttpSession session = request.getSession();
+		
+		Compte cp =(Compte) session.getAttribute("user");
+		//String idCompte = cp.getCode();
+		
+		//List<Livre> livresAffich = new ArrayList<Livre>();
+		
+		//List<Compte> comptes = metier.listComptes();
+		List<Livre> livres = new ArrayList<Livre>();
+		List<Livre> ls = metier.listLivres();
+		if(ls != null) {
+			for(Livre l:ls) {
+				//System.out.println("livre "+l.getDesignation());
+				if(l.getEtat().equals("non vendu") && !cp.getCode().equals(l.getOwner().getCode())){
+					System.out.println("owner "+l.getOwner());
+					livres.add(l);
+			}
+			}
+		}
+		
+		
+		
+	
+		request.setAttribute("livres", livres);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("Achat.jsp");
+		requestDispatcher.forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		Compte cp =(Compte) session.getAttribute("user");
-		String idCompte = cp.getCode();
-		
-		String description = request.getParameter("description");
-		String designation = request.getParameter("designation");
-		String genre = request.getParameter("genre");
-		String img = request.getParameter("img");
-		String auteur = request.getParameter("auteur");
-		double prix = Double.parseDouble(request.getParameter("prix"));
-		
-		Livre livre = new Livre(designation, prix, description, img, auteur, genre);
-		//System.out.println("livre "+livre.getId()+" "+livre.getDesignation());
-		
-		metier.addLivre(livre);
-		metier.ajouterLivre(idCompte, livre);
-		RequestDispatcher requestDispatcher = request.getRequestDispatcher("Vendre.jsp");
+		int idLivre =  Integer.parseInt(request.getParameter("buyLivre"));
+		metier.effectuerCommande(cp.getCode(), idLivre);
+		RequestDispatcher requestDispatcher = request.getRequestDispatcher("index.jsp");
 		requestDispatcher.forward(request, response);
-		
+	
 	}
 
 }

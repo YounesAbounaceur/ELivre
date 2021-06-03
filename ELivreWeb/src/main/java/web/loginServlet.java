@@ -38,7 +38,7 @@ public class loginServlet extends HttpServlet {
     	if(compte!=null) {
 
     		session.setAttribute("user", compte);
-    		System.out.println("role : "+session.getAttribute("role") + "\n"+compte);
+    		//System.out.println("role : "+session.getAttribute("role") + "\n"+compte);
     		//Compte cp =(Compte) session.getAttribute("user");
     		//System.out.println("user is :"+cp.getUsername());
     		
